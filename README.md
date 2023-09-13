@@ -35,7 +35,9 @@ Simulating AWS on your local computer can be useful in various situations, such 
 
 It is important to note that local simulation is not identical to the real AWS cloud and may have some limitations. However, it can be a useful tool for development and testing in controlled environments.
 
-More Info about LocalStack [here](https://localstack.cloud/). 
+More Info about LocalStack:<br>
+- [LocalStack oficial page](https://localstack.cloud/). 
+- [How LocalStack works](https://www.docker.com/blog/develop-your-cloud-app-locally-with-the-localstack-extension/).
 
 # Requirements
 - Have  previously installed on your computer:
