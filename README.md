@@ -70,7 +70,7 @@ Here is a breakdown of the different components of this command:
 More Info about LocalStack [here](https://docs.localstack.cloud/getting-started/installation/). 
 # Try it
 
-Create a bucket called "MyStorage" in the georgraphic area (region)  of Europe (London).
+Create a bucket called "mybuckettyt" in the georgraphic area (region)  of Europe (London).
 
 To create this resource you use "Amazon S3" service using the AWS Command Line Interface (CLI) o Terraform. 
 
@@ -78,7 +78,7 @@ To create this resource you use "Amazon S3" service using the AWS Command Line I
 Open the console.<br>
 
 ```shell
-aws --endpoint-url http://localhost:4566 s3api create-bucket --bucket mybucket --region eu-west-2 --create-bucket-configuration LocationConstraint=eu-west-2
+aws --endpoint-url http://localhost:4566 s3api create-bucket --bucket mybuckettyt --region eu-west-2 --create-bucket-configuration LocationConstraint=eu-west-2
 
 ```
 
@@ -89,9 +89,24 @@ aws --endpoint-url http://localhost:4566 s3api create-bucket --bucket mybucket -
 **_s3api_**: This is the service name for Amazon S3 API commands.<br><br>
 ***create-bucket***: This is the specific command to create a new bucket in Amazon S3.
 <br><br>
-**_--bucket MyStorage_**: This flag specifies the name for the new bucket. You can replace my-bucket with your desired bucket name.
+**_--bucket mybuckettyt_**: This flag specifies the name for the new bucket. You can replace mybuckettyt with your desired bucket name.
 <br><br>
 _**--region eu-west-2**_: This flag specifies the AWS region in which the bucket should be created. In this example, it is set to eu-west-2, which is the region code for Europe (London).<br><br>
 **_--create-bucket-configuration LocationConstraint=eu-west-2_** : This flag configurate the location to London. <br>
 In LocalStack to simulate AWS services in your local environment, by default the region "us-east-1" and the endpoint "http://localhost:4566" are compatible and would not need extra configuration. But We want it to point to London, eu-west-2 region. In this case, a LocationConstraint configuration is made pointing to the desired region, which is London.
 
+## Check the list of resources 
+Check the list of buckets you have created:
+ ```shell
+  aws --endpoint-url=http://localhost:4566 s3api list-buckets  
+ ```
+
+<br><br>
+If you like  more details your can try:
+```shell
+aws --endpoint-url http://localhost:4566 s3api list-buckets --query "Buckets[*].[Name, CreationDate, LocationConstraint]" --output table
+
+```
+<br><br>
+In a real AWS environment, the LocationConstraint field would indicate the actual region where the bucket is located. However, since LocalStack is a local simulation of AWS services, it does **not** have the concept of regions and therefore does not provide the region **information**.
+<br>The LocationConstraint field will always show "**None**" for buckets listed in LocalStack, regardless of the region specified in the --endpoint-url parameter.
