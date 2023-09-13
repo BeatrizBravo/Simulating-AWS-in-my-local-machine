@@ -1,3 +1,4 @@
+![LocalStack](https://docs.localstack.cloud/)
 Index:
 <!-- TOC -->
 * [Simulating-AWS-in-my-local-machine](#simulating-aws-in-my-local-machine)
@@ -57,6 +58,8 @@ docker version
 docker run --rm -it -p 4566:4566 -p 4571:4571 localstack/localstack
 ```
 
+![Installing LocalStack](https://github.com/BeatrizBravo/Simulating-AWS-in-my-local-machine/blob/main/imagenes/intalling%20LocalStack.PNG)
+
 This command is used to run a Docker container using the localstack/localstack image, with the option to automatically remove the container once its execution is stopped, enable interaction with the container through the terminal, and map the container's ports to the host's ports.
 <br><br>
 **More details** about the command:
@@ -82,6 +85,8 @@ aws --endpoint-url http://localhost:4566 s3api create-bucket --bucket mybucketty
 
 ```
 
+![creating a resource](https://github.com/BeatrizBravo/Simulating-AWS-in-my-local-machine/blob/main/imagenes/creating%20the%20resorce.PNG)
+
 
 **_aws_**: This is the command to invoke the AWS CLI.<br><br>
 **_--endpoint-url=http://localhost:4566_**: This flag specifies the endpoint URL to which the command should be sent. <br>In this case, it is set to http://localhost:4566, which is the endpoint provided by LocalStack to simulate AWS applications locally.<br><br>
@@ -101,12 +106,17 @@ Check the list of buckets you have created:
   aws --endpoint-url=http://localhost:4566 s3api list-buckets  
  ```
 
+![List all your buckets](https://github.com/BeatrizBravo/Simulating-AWS-in-my-local-machine/blob/main/imagenes/list%20all%20you%20buckets.PNG)
+
 <br><br>
 If you like  more details your can try:
 ```shell
 aws --endpoint-url http://localhost:4566 s3api list-buckets --query "Buckets[*].[Name, CreationDate, LocationConstraint]" --output table
 
 ```
+
+![List all your buckets in a table](https://github.com/BeatrizBravo/Simulating-AWS-in-my-local-machine/blob/main/imagenes/list%20all%20you%20buckets%20with%20details.PNG)
+
 <br><br>
 In a real AWS environment, the LocationConstraint field would indicate the actual region where the bucket is located. However, since LocalStack is a local simulation of AWS services, it does **not** have the concept of regions and therefore does not provide the region **information**.
 <br>The LocationConstraint field will always show "**None**" for buckets listed in LocalStack, regardless of the region specified in the --endpoint-url parameter.
