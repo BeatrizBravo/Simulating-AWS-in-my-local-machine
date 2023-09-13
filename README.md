@@ -1,2 +1,24 @@
 # Simulating-AWS-in-my-local-machine
-Learn how to install and use localstack
+install and use localstack
+
+
+
+# AWS
+The AWS (Amazon Web Services) service is a cloud computing platform that **offers a wide range of services and tools** to help you build and manage applications and services in the cloud . AWS provides services for storage, processing, analytics, artificial intelligence, machine learning, databases, networking, security, and many other aspects of IT infrastructure.
+## Simulation
+
+Simulating AWS on your local computer allows you to develop and test applications and services without the need to use real cloud resources. A popular tool for simulating AWS services in your local environment is LocalStack. 
+
+# LocalStack 
+
+LocalStack is an open-source implementation of a local cloud that replicates many of the AWS services. You can use LocalStack to run services like S3, DynamoDB, Lambda, SQS, SNS, and others on your local machine.
+
+Simulating AWS on your local computer can be useful in various situations, such as:
+
+- Development and testing: You can develop and test applications that use AWS services **without incurring cloud costs**. This allows you to iterate quickly and debug your code in a controlled environment.
+
+- Learning: If you are learning to use AWS services, simulating them on your local computer allows you to experiment and familiarize yourself with them **without having to create an AWS account and pay** for the services.
+
+- Isolated environments: You can create isolated environments for development and testing, allowing you to try different configurations and scenarios without impacting your production environment in the cloud.
+
+It is important to note that local simulation is not identical to the real AWS cloud and may have some limitations. However, it can be a useful tool for development and testing in controlled environments.
