@@ -1,11 +1,20 @@
+Index:
+<!-- TOC -->
+* [AWS](#aws)
+* [Simulation](#simulation)
+* [LocalStack](#localstack)
+* [Requirements](#requirements)
+* [Installation](#installation)
+<!-- TOC -->
+
 # Simulating-AWS-in-my-local-machine
-install and use localstack
+Install and use localstack
 
 
 
 # AWS
 The AWS (Amazon Web Services) service is a cloud computing platform that **offers a wide range of services and tools** to help you build and manage applications and services in the cloud . AWS provides services for storage, processing, analytics, artificial intelligence, machine learning, databases, networking, security, and many other aspects of IT infrastructure.
-## Simulation
+# Simulation
 
 Simulating AWS on your local computer allows you to develop and test applications and services without the need to use real cloud resources. A popular tool for simulating AWS services in your local environment is LocalStack. 
 
@@ -22,3 +31,37 @@ Simulating AWS on your local computer can be useful in various situations, such 
 - Isolated environments: You can create isolated environments for development and testing, allowing you to try different configurations and scenarios without impacting your production environment in the cloud.
 
 It is important to note that local simulation is not identical to the real AWS cloud and may have some limitations. However, it can be a useful tool for development and testing in controlled environments.
+
+More Info about LocalStack [here](https://localstack.cloud/). 
+
+# Requirements
+- Have  previously installed on your computer:
+  - [Installed AWS cl](https://github.com/BeatrizBravo/terraformONE#aws-cli)
+  - [docker](https://www.docker.com/get-started/)
+- Verify on the console:
+
+```shell
+docker version
+```
+```shell
+ aws --version
+```
+
+# Installation
+- Open docker desktop 
+- Open de console and type:
+
+```shell
+docker run --rm -it -p 4566:4566 -p 4571:4571 localstack/localstack
+```
+
+This command is used to run a Docker container using the localstack/localstack image, with the option to automatically remove the container once its execution is stopped, enable interaction with the container through the terminal, and map the container's ports to the host's ports.
+<br><br>
+**More details** about the command:
+Here is a breakdown of the different components of this command:
+
+**docker run**: This command is used to run a Docker container.<br>
+**-it**: These options enable interaction with the container through the terminal. <br>**-i** : option keeps the container's standard input open.<br>**-t** : option allocates a pseudo-terminal.<br>
+**-p 4566:4566 -p 4571:4571**: These options map the container's ports to the host's ports. In this case, port 4566 of the container is mapped to port 4566 of the host, and port 4571 of the container is mapped to port 4571 of the host. This allows accessing the services exposed by the container through those ports on the host.<br>
+**localsatack/localstack**: This is the name of the container image that will be used to run the container. In this case, the localcatack/localstack image is used.
+
