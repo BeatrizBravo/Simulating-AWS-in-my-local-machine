@@ -1,4 +1,4 @@
-![LocalStack](https://docs.localstack.cloud/)
+![LocalStack](https://images.opencollective.com/localstack/2d16c96/background.png)<br>
 Index:
 <!-- TOC -->
 * [Simulating-AWS-in-my-local-machine](#simulating-aws-in-my-local-machine)
