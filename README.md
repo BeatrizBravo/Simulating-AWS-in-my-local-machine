@@ -1,10 +1,12 @@
 Index:
 <!-- TOC -->
+* [Simulating-AWS-in-my-local-machine](#simulating-aws-in-my-local-machine)
 * [AWS](#aws)
 * [Simulation](#simulation)
 * [LocalStack](#localstack)
 * [Requirements](#requirements)
 * [Installation](#installation)
+* [Try it](#try-it)
 <!-- TOC -->
 
 # Simulating-AWS-in-my-local-machine
@@ -64,4 +66,32 @@ Here is a breakdown of the different components of this command:
 **-it**: These options enable interaction with the container through the terminal. <br>**-i** : option keeps the container's standard input open.<br>**-t** : option allocates a pseudo-terminal.<br>
 **-p 4566:4566 -p 4571:4571**: These options map the container's ports to the host's ports. In this case, port 4566 of the container is mapped to port 4566 of the host, and port 4571 of the container is mapped to port 4571 of the host. This allows accessing the services exposed by the container through those ports on the host.<br>
 **localsatack/localstack**: This is the name of the container image that will be used to run the container. In this case, the localcatack/localstack image is used.
+
+More Info about LocalStack [here](https://docs.localstack.cloud/getting-started/installation/). 
+# Try it
+
+Create a bucket called "MyStorage" in the georgraphic area (region)  of Europe (London).
+
+To create this resource you use "Amazon S3" service using the AWS Command Line Interface (CLI) o Terraform. 
+
+ ## Using AWS CLI
+Open the console.<br>
+
+```shell
+aws --endpoint-url http://localhost:4566 s3api create-bucket --bucket mybucket --region eu-west-2 --create-bucket-configuration LocationConstraint=eu-west-2
+
+```
+
+
+**_aws_**: This is the command to invoke the AWS CLI.<br><br>
+**_--endpoint-url=http://localhost:4566_**: This flag specifies the endpoint URL to which the command should be sent. <br>In this case, it is set to http://localhost:4566, which is the endpoint provided by LocalStack to simulate AWS applications locally.<br><br>
+
+**_s3api_**: This is the service name for Amazon S3 API commands.<br><br>
+***create-bucket***: This is the specific command to create a new bucket in Amazon S3.
+<br><br>
+**_--bucket MyStorage_**: This flag specifies the name for the new bucket. You can replace my-bucket with your desired bucket name.
+<br><br>
+_**--region eu-west-2**_: This flag specifies the AWS region in which the bucket should be created. In this example, it is set to eu-west-2, which is the region code for Europe (London).<br><br>
+**_--create-bucket-configuration LocationConstraint=eu-west-2_** : This flag configurate the location to London. <br>
+In LocalStack to simulate AWS services in your local environment, by default the region "us-east-1" and the endpoint "http://localhost:4566" are compatible and would not need extra configuration. But We want it to point to London, eu-west-2 region. In this case, a LocationConstraint configuration is made pointing to the desired region, which is London.
 
